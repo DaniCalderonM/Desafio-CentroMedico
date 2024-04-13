@@ -51,7 +51,7 @@ app.get('/', async (req, res) => {
         for (let i = 0; i < mujeres.length; i++) {
             let consultante = mujeres[i];
             let numero = i + 1;
-            mensajeM += `${numero}.Nombre: ${consultante.Nombre} - Apellido: ${consultante.Apellido} - ID: ${consultante.ID} - Timestamp: ${consultante.Timestamp}<br>`
+            mensajeM += `<li>Nombre: ${consultante.Nombre} - Apellido: ${consultante.Apellido} - ID: ${consultante.ID} - Timestamp: ${consultante.Timestamp}</li>`
             console.log(chalk.blue.bgWhite(`${numero}.Nombre: ${consultante.Nombre} - Apellido: ${consultante.Apellido} - ID: ${consultante.ID} - Timestamp: ${consultante.Timestamp}`));
         }
 
@@ -62,12 +62,12 @@ app.get('/', async (req, res) => {
         for (let i = 0; i < hombres.length; i++) {
             let consultante = hombres[i];
             let numero = i + 1;
-            mensajeH += `${numero}.Nombre: ${consultante.Nombre} - Apellido: ${consultante.Apellido} - ID: ${consultante.ID} - Timestamp: ${consultante.Timestamp}<br>`
+            mensajeH += `<li>Nombre: ${consultante.Nombre} - Apellido: ${consultante.Apellido} - ID: ${consultante.ID} - Timestamp: ${consultante.Timestamp}</li>`
             console.log(chalk.blue.bgWhite(`${numero}.Nombre: ${consultante.Nombre} - Apellido: ${consultante.Apellido} - ID: ${consultante.ID} - Timestamp: ${consultante.Timestamp}`));
         }
 
         // Enviamos con send la informacion para que sea vista por el navegador, maquillada con etiquetas html
-        res.send(`<div>${mensajeM}</div> <div>${mensajeH}</div>`);
+        res.send(`<div><ol>${mensajeM}</ol></div> <div><ol>${mensajeH}</ol></div>`);
 
     } catch (error) {
         // Manejo de errores
